@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.Spin_Activity">
+
+    <RelativeLayout
+        android:id="@+id/backll"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/backbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            app:srcCompat="@drawable/backbtn" />
+
+        <ImageView
+            android:id="@+id/warn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="30dp"
+            android:clickable="true"
+            app:srcCompat="@drawable/warning" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="125dp"
+        android:fontFamily="@font/press_start_2p"
+        android:text="Spin &amp; Earn"
+        android:textColor="#0C0B0B"
+        android:textSize="32sp" />
+
+    <LinearLayout
+        android:id="@+id/LL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header"
+        android:layout_marginTop="100dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical">
+
+        <com.bluehomestudio.luckywheel.LuckyWheel
+            android:id="@+id/lwv"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:fontFamily="@font/ingrid"
+            android:textAlignment="textEnd"
+            android:textDirection="locale"
+            app:background_color="@color/yellow_card"
+            app:style="fill_and_stroke"
+            app:text_size="35sp">
+
+        </com.bluehomestudio.luckywheel.LuckyWheel>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/load"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:visibility="gone"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading" />
+
+        <RelativeLayout
+            android:id="@+id/btnRl"
+            android:layout_width="230dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:visibility="visible">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/spinbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="40dp"
+                android:scaleType="fitCenter"
+                android:scaleX="3"
+                android:scaleY="3"
+                app:lottie_rawRes="@raw/spin_button" />
+
+            <TextView
+                android:id="@+id/btntxt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                android:gravity="center_horizontal|center_vertical"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
+                android:text="Spin"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/LL"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/nxtSpin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/LL"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/press_start_2p"
+            android:gravity="center_horizontal"
+            android:text="Next Spin in:"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/press_start_2p"
+            android:gravity="center_horizontal"
+            android:text="--:--:--"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+</RelativeLayout>

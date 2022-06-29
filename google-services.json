@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "691019938669",
+    "project_id": "boo-4db3e",
+    "storage_bucket": "boo-4db3e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691019938669:android:0e6cda77ad6a0a6ac57864",
+        "android_client_info": {
+          "package_name": "com.ojotech.boo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "691019938669-jrg4su6ctj0ic5c582el767uf5mpq8fo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCc5Rv0KDMb6WcTthSEFujliOxBH4FMHwU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "691019938669-jrg4su6ctj0ic5c582el767uf5mpq8fo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

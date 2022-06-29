@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/msgs"
+        android:title="Msgs"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/no_msg"/>
+
+    <item
+        android:id="@+id/mains"
+        android:title="Msgs"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/webcam"/>
+
+    <item
+        android:id="@+id/history"
+        android:title="Msgs"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/history"/>
+
+
+</menu>

@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name" translatable="false">Boo!</string>
+    <string name="facebook_app_id">369022928251140</string>
+    <string name="fb_login_protocol_scheme">fb369022928251140</string>
+    <string name="facebook_client_token">9e7b6b08014a48169b1e8f2a9229370c</string>
+    <string name="GET_USER_INFO_URL">https://api.instagram.com/v1/users/self/?access_token=</string>
+    <string name="agora_app_id" translatable="false">b400bb8eaf584eb7a0522fc1076ec8e2</string>
+    <string name="google_login_button">Google login button</string>
+    <string name="facebook_login_button">Facebook login button</string>
+    <string name="boo_title_of_app">Boo! Title of app</string>
+    <string name="instalogin">Instalogin</string>
+    <string name="spin_title_2">Next Spin in:</string>
+    <string name="spin_ready_txt">Ready to Spin</string>
+    <string name="warn_msg"><font color = 'white' bgcolor = 'black'>If you leave this page \nbefore the Wheel
+        <font color = 'red'><b>STOPS</b></font> spinning \nyou will </font>
+        <font color = 'black' bgcolor = 'white'><b>NOT</b></font>
+        <font color = 'white' bgcolor = 'black'> gain any gems \n</font>
+        <font color = 'black' bgcolor = 'white'><b>AND</b></font>
+        <font color = 'white' bgcolor = 'black'> you will still have to wait \nuntil the Countdown is reset</font>
+    </string>
+</resources>
