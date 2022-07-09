@@ -1,5 +1,8 @@
 package com.jotech.boo.activities;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
@@ -40,25 +43,32 @@ public class GemsActivity extends AppCompatActivity {
         menuLl = findViewById(R.id.menuLl);
         spinRl = findViewById(R.id.spinRl);
 
-        Uri uri = Uri.parse("android.resource://" + getPackageName() +"/" + R.raw.gemsact);
+        new Thread(new Runnable() {
 
-        //set uri to video
-        vidBg.setVideoURI(uri);
-        vidBg.start();
-        vidBg.setOnPreparedListener((mediaPlayer) -> {
-            mMediaPlayer = mediaPlayer;
-            mMediaPlayer.setLooping(true);
+            @Override
+            public void run() {
+                Uri uri = Uri.parse("android.resource://" + getPackageName() +"/" + R.raw.gemsact);
 
-            //seek current position and play it
-            if (mCurrentVideoPosition !=0){
-                mMediaPlayer.seekTo(mCurrentVideoPosition);
-                mMediaPlayer.start();
+                //set uri to video
+                vidBg.setVideoURI(uri);
+                vidBg.start();
+                vidBg.setOnPreparedListener((mediaPlayer) -> {
+                    mMediaPlayer = mediaPlayer;
+                    mMediaPlayer.setLooping(true);
+
+                    //seek current position and play it
+                    if (mCurrentVideoPosition !=0){
+                        mMediaPlayer.seekTo(mCurrentVideoPosition);
+                        mMediaPlayer.start();
+                    }
+                });
+
+                anim = (AnimationDrawable) topBar.getBackground();
+                anim.setEnterFadeDuration(3000);
+                anim.setExitFadeDuration(2000);
             }
-        });
+        }).start();
 
-        anim = (AnimationDrawable) topBar.getBackground();
-        anim.setEnterFadeDuration(3000);
-        anim.setExitFadeDuration(2000);
 
 
         spinRl.setOnClickListener(new View.OnClickListener() {
@@ -68,23 +78,58 @@ public class GemsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        /*new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (menuLl.getVisibility() == View.GONE) {
+                    menuLl.setVisibility(View.VISIBLE);
+
+                    getViewScaleAnimator(menuLl).setDuration(4000).start();
+                }
+            }
+        }).start();*/
+    }
+
+    private Animator getViewScaleAnimator(final View target) {
+        // height resize animation
+        AnimatorSet animatorSet = new AnimatorSet();
+        int desiredHeight = 630;
+        int currentHeight = target.getHeight();
+        ValueAnimator heightAnimator = ValueAnimator.ofInt(1, desiredHeight);
+        heightAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                ViewGroup.LayoutParams params = (ViewGroup.LayoutParams) target.getLayoutParams();
+                params.height = (int) animation.getAnimatedValue();
+                target.setLayoutParams(params);
+            }
+        });
+        animatorSet.play(heightAnimator);
+        return animatorSet;
     }
 
     @Override
     protected void onStart() {
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                // yourMethod();
-                    menuLl.setVisibility(View.VISIBLE);
-            }
-        }, 3000);
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        // yourMethod();
+                        if (menuLl.getVisibility() == View.GONE) {
+                            menuLl.setVisibility(View.VISIBLE);
+
+                            getViewScaleAnimator(menuLl).setDuration(500).start();
+                        }                    }
+                }, 3000);
+
         super.onStart();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
         if (anim != null && !anim.isRunning()) {
             anim.start();
         }
